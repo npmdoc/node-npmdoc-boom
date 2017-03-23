@@ -1,0 +1,1465 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api-documentation for
+    <a
+
+        href="https://github.com/hapijs/boom#readme"
+
+    >boom (v4.3.0)</a>
+</h1>
+<h4>HTTP-friendly error objects</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.boom">module boom</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.badData">
+            function <span class="apidocSignatureSpan">boom.</span>badData
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.badGateway">
+            function <span class="apidocSignatureSpan">boom.</span>badGateway
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.badImplementation">
+            function <span class="apidocSignatureSpan">boom.</span>badImplementation
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.badRequest">
+            function <span class="apidocSignatureSpan">boom.</span>badRequest
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.clientTimeout">
+            function <span class="apidocSignatureSpan">boom.</span>clientTimeout
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.conflict">
+            function <span class="apidocSignatureSpan">boom.</span>conflict
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.create">
+            function <span class="apidocSignatureSpan">boom.</span>create
+            <span class="apidocSignatureSpan">(statusCode, message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.entityTooLarge">
+            function <span class="apidocSignatureSpan">boom.</span>entityTooLarge
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.expectationFailed">
+            function <span class="apidocSignatureSpan">boom.</span>expectationFailed
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.forbidden">
+            function <span class="apidocSignatureSpan">boom.</span>forbidden
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.gatewayTimeout">
+            function <span class="apidocSignatureSpan">boom.</span>gatewayTimeout
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.illegal">
+            function <span class="apidocSignatureSpan">boom.</span>illegal
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.internal">
+            function <span class="apidocSignatureSpan">boom.</span>internal
+            <span class="apidocSignatureSpan">(message, data, statusCode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.lengthRequired">
+            function <span class="apidocSignatureSpan">boom.</span>lengthRequired
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.locked">
+            function <span class="apidocSignatureSpan">boom.</span>locked
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.methodNotAllowed">
+            function <span class="apidocSignatureSpan">boom.</span>methodNotAllowed
+            <span class="apidocSignatureSpan">(message, data, allow)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.notAcceptable">
+            function <span class="apidocSignatureSpan">boom.</span>notAcceptable
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.notFound">
+            function <span class="apidocSignatureSpan">boom.</span>notFound
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.notImplemented">
+            function <span class="apidocSignatureSpan">boom.</span>notImplemented
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.paymentRequired">
+            function <span class="apidocSignatureSpan">boom.</span>paymentRequired
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.preconditionFailed">
+            function <span class="apidocSignatureSpan">boom.</span>preconditionFailed
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.preconditionRequired">
+            function <span class="apidocSignatureSpan">boom.</span>preconditionRequired
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.proxyAuthRequired">
+            function <span class="apidocSignatureSpan">boom.</span>proxyAuthRequired
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.rangeNotSatisfiable">
+            function <span class="apidocSignatureSpan">boom.</span>rangeNotSatisfiable
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.resourceGone">
+            function <span class="apidocSignatureSpan">boom.</span>resourceGone
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.serverUnavailable">
+            function <span class="apidocSignatureSpan">boom.</span>serverUnavailable
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.teapot">
+            function <span class="apidocSignatureSpan">boom.</span>teapot
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.tooManyRequests">
+            function <span class="apidocSignatureSpan">boom.</span>tooManyRequests
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.unauthorized">
+            function <span class="apidocSignatureSpan">boom.</span>unauthorized
+            <span class="apidocSignatureSpan">(message, scheme, attributes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.unsupportedMediaType">
+            function <span class="apidocSignatureSpan">boom.</span>unsupportedMediaType
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.uriTooLong">
+            function <span class="apidocSignatureSpan">boom.</span>uriTooLong
+            <span class="apidocSignatureSpan">(message, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.boom.wrap">
+            function <span class="apidocSignatureSpan">boom.</span>wrap
+            <span class="apidocSignatureSpan">(error, statusCode, message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.boom" id="apidoc.module.boom">module boom</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.boom.badData" id="apidoc.element.boom.badData">
+        function <span class="apidocSignatureSpan">boom.</span>badData
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">badData = function (message, data) {
+
+    return internals.create(422, message, data, exports.badData);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+  - [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+  - [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+  - [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+  - [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+  - [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+  - [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">badData</span>([message], [data])`](#boombaddatamessage-data)
+  - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+  - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+  - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+  - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+- [HTTP 5xx Errors](#http-5xx-errors)
+  - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+  - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.badGateway" id="apidoc.element.boom.badGateway">
+        function <span class="apidocSignatureSpan">boom.</span>badGateway
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">badGateway = function (message, data) {
+
+    return internals.serverError(message, data, 502, exports.badGateway);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+    - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+    - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+    - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+  - [HTTP 5xx Errors](#http-5xx-errors)
+    - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+    - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+    - [`Boom.<span class="apidocCodeKeywordSpan">badGateway</span>([message], [data])`](#boombadgatewaymessage-data)
+    - [`Boom.serverUnavailable([message], [data])`](#boomserverunavailablemessage-data)
+    - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
+  - [F.A.Q.](#faq)
+
+&#x3c;!-- tocstop --&#x3e;
+
+# Boom
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.badImplementation" id="apidoc.element.boom.badImplementation">
+        function <span class="apidocSignatureSpan">boom.</span>badImplementation
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">badImplementation = function (message, data) {
+
+    const err = internals.serverError(message, data, 500, exports.badImplementation);
+    err.isDeveloperError = true;
+    return err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    - [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+    - [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+    - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+    - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+    - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+    - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+  - [HTTP 5xx Errors](#http-5xx-errors)
+    - [`Boom.<span class="apidocCodeKeywordSpan">badImplementation</span>([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage
+-data---alias-internal)
+    - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+    - [`Boom.badGateway([message], [data])`](#boombadgatewaymessage-data)
+    - [`Boom.serverUnavailable([message], [data])`](#boomserverunavailablemessage-data)
+    - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
+  - [F.A.Q.](#faq)
+
+&#x3c;!-- tocstop --&#x3e;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.badRequest" id="apidoc.element.boom.badRequest">
+        function <span class="apidocSignatureSpan">boom.</span>badRequest
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">badRequest = function (message, data) {
+
+    return internals.create(400, message, data, exports.badRequest);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+&#x3c;!-- toc --&#x3e;
+
+- [Boom](#boom)
+- [Helper Methods](#helper-methods)
+  - [`wrap(error, [statusCode], [message])`](#wraperror-statuscode-message)
+  - [`create(statusCode, [message], [data])`](#createstatuscode-message-data)
+- [HTTP 4xx Errors](#http-4xx-errors)
+  - [`Boom.<span class="apidocCodeKeywordSpan">badRequest</span>([message], [data])`](#boombadrequestmessage-data)
+  - [`Boom.unauthorized([message], [scheme], [attributes])`](#boomunauthorizedmessage-scheme-attributes)
+  - [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+  - [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+  - [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+  - [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+  - [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+  - [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.clientTimeout" id="apidoc.element.boom.clientTimeout">
+        function <span class="apidocSignatureSpan">boom.</span>clientTimeout
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clientTimeout = function (message, data) {
+
+    return internals.create(408, message, data, exports.clientTimeout);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.unauthorized([message], [scheme], [attributes])`](#boomunauthorizedmessage-scheme-attributes)
+- [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+- [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+- [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+- [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+- [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+- [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">clientTimeout</span>([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.conflict" id="apidoc.element.boom.conflict">
+        function <span class="apidocSignatureSpan">boom.</span>conflict
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">conflict = function (message, data) {
+
+    return internals.create(409, message, data, exports.conflict);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+- [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+- [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+- [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+- [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+- [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">conflict</span>([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+- [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.create" id="apidoc.element.boom.create">
+        function <span class="apidocSignatureSpan">boom.</span>create
+        <span class="apidocSignatureSpan">(statusCode, message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (statusCode, message, data) {
+
+    return internals.create(statusCode, message, data, exports.create);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Generates an `Error` object with the **boom** decorations where:
+- `statusCode` - an HTTP error code number. Must be greater or equal 400.
+- `message` - optional message string.
+- `data` - additional error data set to `error.data` property.
+
+```js
+var error = Boom.<span class="apidocCodeKeywordSpan">create</span>(400, &#x27;Bad request&#x27;, { timestamp: Date.now() });
+```
+
+## HTTP 4xx Errors
+
+### `Boom.badRequest([message], [data])`
+
+Returns a 400 Bad Request error where:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.entityTooLarge" id="apidoc.element.boom.entityTooLarge">
+        function <span class="apidocSignatureSpan">boom.</span>entityTooLarge
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">entityTooLarge = function (message, data) {
+
+    return internals.create(413, message, data, exports.entityTooLarge);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+- [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">entityTooLarge</span>([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+- [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+- [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+- [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+- [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+- [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.expectationFailed" id="apidoc.element.boom.expectationFailed">
+        function <span class="apidocSignatureSpan">boom.</span>expectationFailed
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">expectationFailed = function (message, data) {
+
+    return internals.create(417, message, data, exports.expectationFailed);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+  - [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+  - [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+  - [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+  - [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+  - [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+  - [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">expectationFailed</span>([message], [data])`](#boomexpectationfailedmessage-data)
+  - [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+  - [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+  - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+  - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+  - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+  - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+- [HTTP 5xx Errors](#http-5xx-errors)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.forbidden" id="apidoc.element.boom.forbidden">
+        function <span class="apidocSignatureSpan">boom.</span>forbidden
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forbidden = function (message, data) {
+
+    return internals.create(403, message, data, exports.forbidden);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [Helper Methods](#helper-methods)
+  - [`wrap(error, [statusCode], [message])`](#wraperror-statuscode-message)
+  - [`create(statusCode, [message], [data])`](#createstatuscode-message-data)
+- [HTTP 4xx Errors](#http-4xx-errors)
+  - [`Boom.badRequest([message], [data])`](#boombadrequestmessage-data)
+  - [`Boom.unauthorized([message], [scheme], [attributes])`](#boomunauthorizedmessage-scheme-attributes)
+  - [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">forbidden</span>([message], [data])`](#boomforbiddenmessage-data)
+  - [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+  - [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+  - [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+  - [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+  - [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+  - [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+  - [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.gatewayTimeout" id="apidoc.element.boom.gatewayTimeout">
+        function <span class="apidocSignatureSpan">boom.</span>gatewayTimeout
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gatewayTimeout = function (message, data) {
+
+    return internals.serverError(message, data, 504, exports.gatewayTimeout);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+    - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+  - [HTTP 5xx Errors](#http-5xx-errors)
+    - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+    - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+    - [`Boom.badGateway([message], [data])`](#boombadgatewaymessage-data)
+    - [`Boom.serverUnavailable([message], [data])`](#boomserverunavailablemessage-data)
+    - [`Boom.<span class="apidocCodeKeywordSpan">gatewayTimeout</span>([message], [data])`](#boomgatewaytimeoutmessage-data)
+  - [F.A.Q.](#faq)
+
+&#x3c;!-- tocstop --&#x3e;
+
+# Boom
+
+**boom** provides a set of utilities for returning HTTP errors. Each utility returns a `Boom` error response
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.illegal" id="apidoc.element.boom.illegal">
+        function <span class="apidocSignatureSpan">boom.</span>illegal
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">illegal = function (message, data) {
+
+    return internals.create(451, message, data, exports.illegal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+  - [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+  - [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+  - [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+  - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+  - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+  - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">illegal</span>([message], [data])`](#boomillegalmessage-data)
+- [HTTP 5xx Errors](#http-5xx-errors)
+  - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+  - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+  - [`Boom.badGateway([message], [data])`](#boombadgatewaymessage-data)
+  - [`Boom.serverUnavailable([message], [data])`](#boomserverunavailablemessage-data)
+  - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
+- [F.A.Q.](#faq)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.internal" id="apidoc.element.boom.internal">
+        function <span class="apidocSignatureSpan">boom.</span>internal
+        <span class="apidocSignatureSpan">(message, data, statusCode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">internal = function (message, data, statusCode) {
+
+    return internals.serverError(message, data, statusCode, exports.internal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.lengthRequired" id="apidoc.element.boom.lengthRequired">
+        function <span class="apidocSignatureSpan">boom.</span>lengthRequired
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lengthRequired = function (message, data) {
+
+    return internals.create(411, message, data, exports.lengthRequired);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+- [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+- [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+- [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">lengthRequired</span>([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+- [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+- [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+- [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.locked" id="apidoc.element.boom.locked">
+        function <span class="apidocSignatureSpan">boom.</span>locked
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">locked = function (message, data) {
+
+    return internals.create(423, message, data, exports.locked);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+  - [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+  - [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+  - [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+  - [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+  - [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+  - [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">locked</span>([message], [data])`](#boomlockedmessage-data)
+  - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+  - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+  - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+- [HTTP 5xx Errors](#http-5xx-errors)
+  - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+  - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+  - [`Boom.badGateway([message], [data])`](#boombadgatewaymessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.methodNotAllowed" id="apidoc.element.boom.methodNotAllowed">
+        function <span class="apidocSignatureSpan">boom.</span>methodNotAllowed
+        <span class="apidocSignatureSpan">(message, data, allow)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">methodNotAllowed = function (message, data, allow) {
+
+    const err = internals.create(405, message, data, exports.methodNotAllowed);
+
+    if (typeof allow === &#x27;string&#x27;) {
+        allow = [allow];
+    }
+
+    if (Array.isArray(allow)) {
+        err.output.headers.Allow = allow.join(&#x27;, &#x27;);
+    }
+
+    return err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`create(statusCode, [message], [data])`](#createstatuscode-message-data)
+- [HTTP 4xx Errors](#http-4xx-errors)
+  - [`Boom.badRequest([message], [data])`](#boombadrequestmessage-data)
+  - [`Boom.unauthorized([message], [scheme], [attributes])`](#boomunauthorizedmessage-scheme-attributes)
+  - [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+  - [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+  - [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">methodNotAllowed</span>([message], [data], [allow])`](#boommethodnotallowedmessage
+-data-allow)
+  - [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+  - [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+  - [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+  - [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+  - [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+  - [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+  - [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.notAcceptable" id="apidoc.element.boom.notAcceptable">
+        function <span class="apidocSignatureSpan">boom.</span>notAcceptable
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">notAcceptable = function (message, data) {
+
+    return internals.create(406, message, data, exports.notAcceptable);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [HTTP 4xx Errors](#http-4xx-errors)
+- [`Boom.badRequest([message], [data])`](#boombadrequestmessage-data)
+- [`Boom.unauthorized([message], [scheme], [attributes])`](#boomunauthorizedmessage-scheme-attributes)
+- [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+- [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+- [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+- [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+- [`Boom.<span class="apidocCodeKeywordSpan">notAcceptable</span>([message], [data])`](#boomnotacceptablemessage-data)
+- [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.notFound" id="apidoc.element.boom.notFound">
+        function <span class="apidocSignatureSpan">boom.</span>notFound
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">notFound = function (message, data) {
+
+    return internals.create(404, message, data, exports.notFound);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`wrap(error, [statusCode], [message])`](#wraperror-statuscode-message)
+  - [`create(statusCode, [message], [data])`](#createstatuscode-message-data)
+- [HTTP 4xx Errors](#http-4xx-errors)
+  - [`Boom.badRequest([message], [data])`](#boombadrequestmessage-data)
+  - [`Boom.unauthorized([message], [scheme], [attributes])`](#boomunauthorizedmessage-scheme-attributes)
+  - [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+  - [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">notFound</span>([message], [data])`](#boomnotfoundmessage-data)
+  - [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+  - [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+  - [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+  - [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+  - [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+  - [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+  - [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.notImplemented" id="apidoc.element.boom.notImplemented">
+        function <span class="apidocSignatureSpan">boom.</span>notImplemented
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">notImplemented = function (message, data) {
+
+    return internals.serverError(message, data, 501, exports.notImplemented);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    - [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+    - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+    - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+    - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+    - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+  - [HTTP 5xx Errors](#http-5xx-errors)
+    - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+    - [`Boom.<span class="apidocCodeKeywordSpan">notImplemented</span>([message], [data])`](#boomnotimplementedmessage-data)
+    - [`Boom.badGateway([message], [data])`](#boombadgatewaymessage-data)
+    - [`Boom.serverUnavailable([message], [data])`](#boomserverunavailablemessage-data)
+    - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
+  - [F.A.Q.](#faq)
+
+&#x3c;!-- tocstop --&#x3e;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.paymentRequired" id="apidoc.element.boom.paymentRequired">
+        function <span class="apidocSignatureSpan">boom.</span>paymentRequired
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">paymentRequired = function (message, data) {
+
+    return internals.create(402, message, data, exports.paymentRequired);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [Boom](#boom)
+- [Helper Methods](#helper-methods)
+  - [`wrap(error, [statusCode], [message])`](#wraperror-statuscode-message)
+  - [`create(statusCode, [message], [data])`](#createstatuscode-message-data)
+- [HTTP 4xx Errors](#http-4xx-errors)
+  - [`Boom.badRequest([message], [data])`](#boombadrequestmessage-data)
+  - [`Boom.unauthorized([message], [scheme], [attributes])`](#boomunauthorizedmessage-scheme-attributes)
+  - [`Boom.<span class="apidocCodeKeywordSpan">paymentRequired</span>([message], [data])`](#boompaymentrequiredmessage-data)
+  - [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+  - [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+  - [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+  - [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+  - [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+  - [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+  - [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.preconditionFailed" id="apidoc.element.boom.preconditionFailed">
+        function <span class="apidocSignatureSpan">boom.</span>preconditionFailed
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">preconditionFailed = function (message, data) {
+
+    return internals.create(412, message, data, exports.preconditionFailed);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+- [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+- [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">preconditionFailed</span>([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+- [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+- [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+- [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+- [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.preconditionRequired" id="apidoc.element.boom.preconditionRequired">
+        function <span class="apidocSignatureSpan">boom.</span>preconditionRequired
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">preconditionRequired = function (message, data) {
+
+    return internals.create(428, message, data, exports.preconditionRequired);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+  - [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+  - [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+  - [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+  - [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+  - [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+  - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">preconditionRequired</span>([message], [data])`](#boompreconditionrequiredmessage
+-data)
+  - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+  - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+- [HTTP 5xx Errors](#http-5xx-errors)
+  - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+  - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+  - [`Boom.badGateway([message], [data])`](#boombadgatewaymessage-data)
+  - [`Boom.serverUnavailable([message], [data])`](#boomserverunavailablemessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.proxyAuthRequired" id="apidoc.element.boom.proxyAuthRequired">
+        function <span class="apidocSignatureSpan">boom.</span>proxyAuthRequired
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">proxyAuthRequired = function (message, data) {
+
+    return internals.create(407, message, data, exports.proxyAuthRequired);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.badRequest([message], [data])`](#boombadrequestmessage-data)
+- [`Boom.unauthorized([message], [scheme], [attributes])`](#boomunauthorizedmessage-scheme-attributes)
+- [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+- [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+- [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+- [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+- [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">proxyAuthRequired</span>([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.rangeNotSatisfiable" id="apidoc.element.boom.rangeNotSatisfiable">
+        function <span class="apidocSignatureSpan">boom.</span>rangeNotSatisfiable
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rangeNotSatisfiable = function (message, data) {
+
+    return internals.create(416, message, data, exports.rangeNotSatisfiable);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">rangeNotSatisfiable</span>([message], [data])`](#boomrangenotsatisfiablemessage-data
+)
+- [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+- [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+- [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+- [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+- [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+- [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+- [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.resourceGone" id="apidoc.element.boom.resourceGone">
+        function <span class="apidocSignatureSpan">boom.</span>resourceGone
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resourceGone = function (message, data) {
+
+    return internals.create(410, message, data, exports.resourceGone);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+- [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+- [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+- [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+- [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">resourceGone</span>([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+- [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+- [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.serverUnavailable" id="apidoc.element.boom.serverUnavailable">
+        function <span class="apidocSignatureSpan">boom.</span>serverUnavailable
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serverUnavailable = function (message, data) {
+
+    return internals.serverError(message, data, 503, exports.serverUnavailable);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+    - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+    - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+  - [HTTP 5xx Errors](#http-5xx-errors)
+    - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+    - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+    - [`Boom.badGateway([message], [data])`](#boombadgatewaymessage-data)
+    - [`Boom.<span class="apidocCodeKeywordSpan">serverUnavailable</span>([message], [data])`](#boomserverunavailablemessage-data
+)
+    - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
+  - [F.A.Q.](#faq)
+
+&#x3c;!-- tocstop --&#x3e;
+
+# Boom
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.teapot" id="apidoc.element.boom.teapot">
+        function <span class="apidocSignatureSpan">boom.</span>teapot
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">teapot = function (message, data) {
+
+    return internals.create(418, message, data, exports.teapot);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+  - [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+  - [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+  - [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+  - [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+  - [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+  - [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">teapot</span>([message], [data])`](#boomteapotmessage-data)
+  - [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+  - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+  - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+  - [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+  - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+- [HTTP 5xx Errors](#http-5xx-errors)
+  - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.tooManyRequests" id="apidoc.element.boom.tooManyRequests">
+        function <span class="apidocSignatureSpan">boom.</span>tooManyRequests
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tooManyRequests = function (message, data) {
+
+    return internals.create(429, message, data, exports.tooManyRequests);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+  - [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+  - [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+  - [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+  - [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+  - [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+  - [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">tooManyRequests</span>([message], [data])`](#boomtoomanyrequestsmessage-data)
+  - [`Boom.illegal([message], [data])`](#boomillegalmessage-data)
+- [HTTP 5xx Errors](#http-5xx-errors)
+  - [`Boom.badImplementation([message], [data])` - (*alias: `internal`*)](#boombadimplementationmessage-data---alias-internal)
+  - [`Boom.notImplemented([message], [data])`](#boomnotimplementedmessage-data)
+  - [`Boom.badGateway([message], [data])`](#boombadgatewaymessage-data)
+  - [`Boom.serverUnavailable([message], [data])`](#boomserverunavailablemessage-data)
+  - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.unauthorized" id="apidoc.element.boom.unauthorized">
+        function <span class="apidocSignatureSpan">boom.</span>unauthorized
+        <span class="apidocSignatureSpan">(message, scheme, attributes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unauthorized = function (message, scheme, attributes) {          // Or function (message, wwwAuthenticate[])
+
+    const err = internals.create(401, message, undefined, exports.unauthorized);
+
+    if (!scheme) {
+        return err;
+    }
+
+    let wwwAuthenticate = &#x27;&#x27;;
+
+    if (typeof scheme === &#x27;string&#x27;) {
+
+        // function (message, scheme, attributes)
+
+        wwwAuthenticate = scheme;
+
+        if (attributes || message) {
+            err.output.payload.attributes = {};
+        }
+
+        if (attributes) {
+            if (typeof attributes === &#x27;string&#x27;) {
+                wwwAuthenticate = wwwAuthenticate + &#x27; &#x27; + Hoek.escapeHeaderAttribute(attributes);
+                err.output.payload.attributes = attributes;
+            }
+            else {
+                const names = Object.keys(attributes);
+                for (let i = 0; i &#x3c; names.length; ++i) {
+                    const name = names[i];
+                    if (i) {
+                        wwwAuthenticate = wwwAuthenticate + &#x27;,&#x27;;
+                    }
+
+                    let value = attributes[name];
+                    if (value === null ||
+                        value === undefined) {              // Value can be zero
+
+                        value = &#x27;&#x27;;
+                    }
+                    wwwAuthenticate = wwwAuthenticate + &#x27; &#x27; + name + &#x27;=&#x22;&#x27; + Hoek.escapeHeaderAttribute(value.toString()) + &#x27;&#x22;&#x27;;
+                    err.output.payload.attributes[name] = value;
+                }
+            }
+        }
+
+
+        if (message) {
+            if (attributes) {
+                wwwAuthenticate = wwwAuthenticate + &#x27;,&#x27;;
+            }
+            wwwAuthenticate = wwwAuthenticate + &#x27; error=&#x22;&#x27; + Hoek.escapeHeaderAttribute(message) + &#x27;&#x22;&#x27;;
+            err.output.payload.attributes.error = message;
+        }
+        else {
+            err.isMissing = true;
+        }
+    }
+    else {
+
+        // function (message, wwwAuthenticate[])
+
+        const wwwArray = scheme;
+        for (let i = 0; i &#x3c; wwwArray.length; ++i) {
+            if (i) {
+                wwwAuthenticate = wwwAuthenticate + &#x27;, &#x27;;
+            }
+
+            wwwAuthenticate = wwwAuthenticate + wwwArray[i];
+        }
+    }
+
+    err.output.headers[&#x27;WWW-Authenticate&#x27;] = wwwAuthenticate;
+
+    return err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+- [Boom](#boom)
+- [Helper Methods](#helper-methods)
+  - [`wrap(error, [statusCode], [message])`](#wraperror-statuscode-message)
+  - [`create(statusCode, [message], [data])`](#createstatuscode-message-data)
+- [HTTP 4xx Errors](#http-4xx-errors)
+  - [`Boom.badRequest([message], [data])`](#boombadrequestmessage-data)
+  - [`Boom.<span class="apidocCodeKeywordSpan">unauthorized</span>([message], [scheme], [attributes])`](#boomunauthorizedmessage
+-scheme-attributes)
+  - [`Boom.paymentRequired([message], [data])`](#boompaymentrequiredmessage-data)
+  - [`Boom.forbidden([message], [data])`](#boomforbiddenmessage-data)
+  - [`Boom.notFound([message], [data])`](#boomnotfoundmessage-data)
+  - [`Boom.methodNotAllowed([message], [data], [allow])`](#boommethodnotallowedmessage-data-allow)
+  - [`Boom.notAcceptable([message], [data])`](#boomnotacceptablemessage-data)
+  - [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+  - [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.unsupportedMediaType" id="apidoc.element.boom.unsupportedMediaType">
+        function <span class="apidocSignatureSpan">boom.</span>unsupportedMediaType
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unsupportedMediaType = function (message, data) {
+
+    return internals.create(415, message, data, exports.unsupportedMediaType);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.uriTooLong([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">unsupportedMediaType</span>([message], [data])`](#boomunsupportedmediatypemessage-data
+)
+- [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+- [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+- [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+- [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+- [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+- [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+- [`Boom.tooManyRequests([message], [data])`](#boomtoomanyrequestsmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.uriTooLong" id="apidoc.element.boom.uriTooLong">
+        function <span class="apidocSignatureSpan">boom.</span>uriTooLong
+        <span class="apidocSignatureSpan">(message, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uriTooLong = function (message, data) {
+
+    return internals.create(414, message, data, exports.uriTooLong);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [`Boom.proxyAuthRequired([message], [data])`](#boomproxyauthrequiredmessage-data)
+- [`Boom.clientTimeout([message], [data])`](#boomclienttimeoutmessage-data)
+- [`Boom.conflict([message], [data])`](#boomconflictmessage-data)
+- [`Boom.resourceGone([message], [data])`](#boomresourcegonemessage-data)
+- [`Boom.lengthRequired([message], [data])`](#boomlengthrequiredmessage-data)
+- [`Boom.preconditionFailed([message], [data])`](#boompreconditionfailedmessage-data)
+- [`Boom.entityTooLarge([message], [data])`](#boomentitytoolargemessage-data)
+- [`Boom.<span class="apidocCodeKeywordSpan">uriTooLong</span>([message], [data])`](#boomuritoolongmessage-data)
+- [`Boom.unsupportedMediaType([message], [data])`](#boomunsupportedmediatypemessage-data)
+- [`Boom.rangeNotSatisfiable([message], [data])`](#boomrangenotsatisfiablemessage-data)
+- [`Boom.expectationFailed([message], [data])`](#boomexpectationfailedmessage-data)
+- [`Boom.teapot([message], [data])`](#boomteapotmessage-data)
+- [`Boom.badData([message], [data])`](#boombaddatamessage-data)
+- [`Boom.locked([message], [data])`](#boomlockedmessage-data)
+- [`Boom.preconditionRequired([message], [data])`](#boompreconditionrequiredmessage-data)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.boom.wrap" id="apidoc.element.boom.wrap">
+        function <span class="apidocSignatureSpan">boom.</span>wrap
+        <span class="apidocSignatureSpan">(error, statusCode, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wrap = function (error, statusCode, message) {
+
+    Hoek.assert(error instanceof Error, &#x27;Cannot wrap non-Error object&#x27;);
+    Hoek.assert(!error.isBoom || arguments.length === 1, &#x27;Cannot provide statusCode or message with boom error&#x27;);
+
+    return (error.isBoom ? error : internals.initialize(error, statusCode || 500, message));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- `error` - the error object to wrap. If `error` is already a **boom** object, returns back the same object.
+- `statusCode` - optional HTTP status code. Defaults to `500`.
+- `message` - optional message string. If the error already has a message, it adds the message as a prefix.
+  Defaults to no message.
+
+```js
+var error = new Error(&#x27;Unexpected input&#x27;);
+Boom.<span class="apidocCodeKeywordSpan">wrap</span>(error, 400);
+```
+
+### `create(statusCode, [message], [data])`
+
+Generates an `Error` object with the **boom** decorations where:
+- `statusCode` - an HTTP error code number. Must be greater or equal 400.
+- `message` - optional message string.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

@@ -1,17 +1,13 @@
-# api-documentation for  [boom (v4.3.0)](https://github.com/hapijs/boom#readme)  [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-boom.svg)](https://travis-ci.org/npmdoc/node-npmdoc-boom)
+# api documentation for  [boom (v4.3.1)](https://github.com/hapijs/boom#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-boom.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-boom) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-boom.svg)](https://travis-ci.org/npmdoc/node-npmdoc-boom)
 #### HTTP-friendly error objects
 
 [![NPM](https://nodei.co/npm/boom.png?downloads=true)](https://www.npmjs.com/package/boom)
 
-# html version
+[![apidoc](https://npmdoc.github.io/node-npmdoc-boom/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-boom_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-boom/build..beta..travis-ci.org/apidoc.html)
 
-- [https://npmdoc.github.io/node-npmdoc-boom/build..beta..travis-ci.org/apidoc.html](https://npmdoc.github.io/node-npmdoc-boom/build..beta..travis-ci.org/apidoc.html)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-boom/build/screenCapture.npmPackageListing.svg)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-boom/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-boom_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-boom/build..beta..travis-ci.org/apidoc.html)
-
-# package listing
-
-![package-listing](https://npmdoc.github.io/node-npmdoc-boom/build/screen-capture.npmPackageListing.svg)
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-boom/build/screenCapture.npmPackageDependencyTree.svg)
 
 
 
@@ -34,13 +30,13 @@
     },
     "directories": {},
     "dist": {
-        "shasum": "1ed1b4b8cd6891b602910debe33e1d511531b847",
-        "tarball": "https://registry.npmjs.org/boom/-/boom-4.3.0.tgz"
+        "shasum": "4f8a3005cb4a7e3889f749030fd25b96e01d2e31",
+        "tarball": "https://registry.npmjs.org/boom/-/boom-4.3.1.tgz"
     },
     "engines": {
         "node": ">=4.0.0"
     },
-    "gitHead": "cd6790e133b31f1de04430eb50f16ae68714eeae",
+    "gitHead": "3d30c69faf6733a1604b400df71ed4781799a032",
     "homepage": "https://github.com/hapijs/boom#readme",
     "keywords": [
         "error",
@@ -75,7 +71,7 @@
         "toc": "node generate-toc.js",
         "version": "npm run toc && git add README.md"
     },
-    "version": "4.3.0"
+    "version": "4.3.1"
 }
 ```
 
@@ -1091,7 +1087,7 @@ uriTooLong = function (message, data) {
 wrap = function (error, statusCode, message) {
 
     Hoek.assert(error instanceof Error, 'Cannot wrap non-Error object');
-    Hoek.assert(!error.isBoom || arguments.length === 1, 'Cannot provide statusCode or message with boom error');
+    Hoek.assert(!error.isBoom || (!statusCode && !message), 'Cannot provide statusCode or message with boom error');
 
     return (error.isBoom ? error : internals.initialize(error, statusCode || 500, message));
 }

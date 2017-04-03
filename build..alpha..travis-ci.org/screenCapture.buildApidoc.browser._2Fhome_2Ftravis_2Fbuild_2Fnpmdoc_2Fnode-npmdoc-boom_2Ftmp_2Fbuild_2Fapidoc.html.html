@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/hapijs/boom#readme"
-
-    >boom (v4.3.1)</a>
+    <a href="https://github.com/hapijs/boom#readme">boom (v4.3.1)</a>
 </h1>
 <h4>HTTP-friendly error objects</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.boom">module boom</a><ol>
 
@@ -413,7 +406,7 @@
     - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
   - [F.A.Q.](#faq)
 
-&#x3c;!-- tocstop --&#x3e;
+&lt;!-- tocstop --&gt;
 
 # Boom
 ...</pre></li>
@@ -450,7 +443,7 @@
     - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
   - [F.A.Q.](#faq)
 
-&#x3c;!-- tocstop --&#x3e;
+&lt;!-- tocstop --&gt;
 ...</pre></li>
     </ul>
 
@@ -468,7 +461,7 @@
     return internals.create(400, message, data, exports.badRequest);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-&#x3c;!-- toc --&#x3e;
+&lt;!-- toc --&gt;
 
 - [Boom](#boom)
 - [Helper Methods](#helper-methods)
@@ -571,7 +564,7 @@ Generates an `Error` object with the **boom** decorations where:
 - `data` - additional error data set to `error.data` property.
 
 ```js
-var error = Boom.<span class="apidocCodeKeywordSpan">create</span>(400, &#x27;Bad request&#x27;, { timestamp: Date.now() });
+var error = Boom.<span class="apidocCodeKeywordSpan">create</span>(400, 'Bad request', { timestamp: Date.now() });
 ```
 
 ## HTTP 4xx Errors
@@ -702,7 +695,7 @@ Returns a 400 Bad Request error where:
     - [`Boom.<span class="apidocCodeKeywordSpan">gatewayTimeout</span>([message], [data])`](#boomgatewaytimeoutmessage-data)
   - [F.A.Q.](#faq)
 
-&#x3c;!-- tocstop --&#x3e;
+&lt;!-- tocstop --&gt;
 
 # Boom
 
@@ -835,12 +828,12 @@ Returns a 400 Bad Request error where:
 
     const err = internals.create(405, message, data, exports.methodNotAllowed);
 
-    if (typeof allow === &#x27;string&#x27;) {
+    if (typeof allow === 'string') {
         allow = [allow];
     }
 
     if (Array.isArray(allow)) {
-        err.output.headers.Allow = allow.join(&#x27;, &#x27;);
+        err.output.headers.Allow = allow.join(', ');
     }
 
     return err;
@@ -956,7 +949,7 @@ Returns a 400 Bad Request error where:
     - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
   - [F.A.Q.](#faq)
 
-&#x3c;!-- tocstop --&#x3e;
+&lt;!-- tocstop --&gt;
 ...</pre></li>
     </ul>
 
@@ -1180,7 +1173,7 @@ Returns a 400 Bad Request error where:
     - [`Boom.gatewayTimeout([message], [data])`](#boomgatewaytimeoutmessage-data)
   - [F.A.Q.](#faq)
 
-&#x3c;!-- tocstop --&#x3e;
+&lt;!-- tocstop --&gt;
 
 # Boom
 ...</pre></li>
@@ -1267,9 +1260,9 @@ Returns a 400 Bad Request error where:
         return err;
     }
 
-    let wwwAuthenticate = &#x27;&#x27;;
+    let wwwAuthenticate = '';
 
-    if (typeof scheme === &#x27;string&#x27;) {
+    if (typeof scheme === 'string') {
 
         // function (message, scheme, attributes)
 
@@ -1280,25 +1273,25 @@ Returns a 400 Bad Request error where:
         }
 
         if (attributes) {
-            if (typeof attributes === &#x27;string&#x27;) {
-                wwwAuthenticate = wwwAuthenticate + &#x27; &#x27; + Hoek.escapeHeaderAttribute(attributes);
+            if (typeof attributes === 'string') {
+                wwwAuthenticate = wwwAuthenticate + ' ' + Hoek.escapeHeaderAttribute(attributes);
                 err.output.payload.attributes = attributes;
             }
             else {
                 const names = Object.keys(attributes);
-                for (let i = 0; i &#x3c; names.length; ++i) {
+                for (let i = 0; i &lt; names.length; ++i) {
                     const name = names[i];
                     if (i) {
-                        wwwAuthenticate = wwwAuthenticate + &#x27;,&#x27;;
+                        wwwAuthenticate = wwwAuthenticate + ',';
                     }
 
                     let value = attributes[name];
                     if (value === null ||
                         value === undefined) {              // Value can be zero
 
-                        value = &#x27;&#x27;;
+                        value = '';
                     }
-                    wwwAuthenticate = wwwAuthenticate + &#x27; &#x27; + name + &#x27;=&#x22;&#x27; + Hoek.escapeHeaderAttribute(value.toString()) + &#x27;&#x22;&#x27;;
+                    wwwAuthenticate = wwwAuthenticate + ' ' + name + '="' + Hoek.escapeHeaderAttribute(value.toString()) + '"';
                     err.output.payload.attributes[name] = value;
                 }
             }
@@ -1307,9 +1300,9 @@ Returns a 400 Bad Request error where:
 
         if (message) {
             if (attributes) {
-                wwwAuthenticate = wwwAuthenticate + &#x27;,&#x27;;
+                wwwAuthenticate = wwwAuthenticate + ',';
             }
-            wwwAuthenticate = wwwAuthenticate + &#x27; error=&#x22;&#x27; + Hoek.escapeHeaderAttribute(message) + &#x27;&#x22;&#x27;;
+            wwwAuthenticate = wwwAuthenticate + ' error="' + Hoek.escapeHeaderAttribute(message) + '"';
             err.output.payload.attributes.error = message;
         }
         else {
@@ -1321,16 +1314,16 @@ Returns a 400 Bad Request error where:
         // function (message, wwwAuthenticate[])
 
         const wwwArray = scheme;
-        for (let i = 0; i &#x3c; wwwArray.length; ++i) {
+        for (let i = 0; i &lt; wwwArray.length; ++i) {
             if (i) {
-                wwwAuthenticate = wwwAuthenticate + &#x27;, &#x27;;
+                wwwAuthenticate = wwwAuthenticate + ', ';
             }
 
             wwwAuthenticate = wwwAuthenticate + wwwArray[i];
         }
     }
 
-    err.output.headers[&#x27;WWW-Authenticate&#x27;] = wwwAuthenticate;
+    err.output.headers['WWW-Authenticate'] = wwwAuthenticate;
 
     return err;
 }</pre></li>
@@ -1430,8 +1423,8 @@ Returns a 400 Bad Request error where:
     <ul>
     <li>description and source-code<pre class="apidocCodePre">wrap = function (error, statusCode, message) {
 
-    Hoek.assert(error instanceof Error, &#x27;Cannot wrap non-Error object&#x27;);
-    Hoek.assert(!error.isBoom || (!statusCode &#x26;&#x26; !message), &#x27;Cannot provide statusCode or message with boom error&#x27;);
+    Hoek.assert(error instanceof Error, 'Cannot wrap non-Error object');
+    Hoek.assert(!error.isBoom || (!statusCode &amp;&amp; !message), 'Cannot provide statusCode or message with boom error');
 
     return (error.isBoom ? error : internals.initialize(error, statusCode || 500, message));
 }</pre></li>
@@ -1442,7 +1435,7 @@ Returns a 400 Bad Request error where:
   Defaults to no message.
 
 ```js
-var error = new Error(&#x27;Unexpected input&#x27;);
+var error = new Error('Unexpected input');
 Boom.<span class="apidocCodeKeywordSpan">wrap</span>(error, 400);
 ```
 
@@ -1463,3 +1456,4 @@ Generates an `Error` object with the **boom** decorations where:
     ]
 </div>
 </div>
+</body></html>

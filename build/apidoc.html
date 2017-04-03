@@ -46,12 +46,12 @@
     font-weight: bold;
 }
 </style>
-<h1>api-documentation for
+<h1>api documentation for
     <a
 
         href="https://github.com/hapijs/boom#readme"
 
-    >boom (v4.3.0)</a>
+    >boom (v4.3.1)</a>
 </h1>
 <h4>HTTP-friendly error objects</h4>
 <div class="apidocSectionDiv"><a
@@ -1431,7 +1431,7 @@ Returns a 400 Bad Request error where:
     <li>description and source-code<pre class="apidocCodePre">wrap = function (error, statusCode, message) {
 
     Hoek.assert(error instanceof Error, &#x27;Cannot wrap non-Error object&#x27;);
-    Hoek.assert(!error.isBoom || arguments.length === 1, &#x27;Cannot provide statusCode or message with boom error&#x27;);
+    Hoek.assert(!error.isBoom || (!statusCode &#x26;&#x26; !message), &#x27;Cannot provide statusCode or message with boom error&#x27;);
 
     return (error.isBoom ? error : internals.initialize(error, statusCode || 500, message));
 }</pre></li>
